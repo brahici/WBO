@@ -1,0 +1,30 @@
+<!doctype html>
+<title>{% block title %}default title{% endblock %}</title>
+<style type="text/css">
+@import url("http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300|Aladin&subset=latin,latin-ext");
+@import url("/media/style/style.css");
+</style>
+{% block additional_css %}{% endblock %}
+<div id="main">
+    <div id="header">
+        <div id="subheader1">brahici's lair</div>
+        <div id="subheader2">my life, python stuff and links to heavy tunes</div>
+    </div>
+    <div id="menu">
+        <ul>
+            {% for menu in index_menus %}
+            <li><a class="menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<div id="legal_stuff">
+    <span>&copy; copyright 2012 by Brice Vissi&egrave;re</span> ::
+    <span>powered by <a href="http://www.djangoproject.com/">django</a></span> ::
+    <span>hosted by <a href="http://www.alwaysdata.com">AlwaysData</a></span>
+    </span>
+</div>
+

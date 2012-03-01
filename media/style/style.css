@@ -1,0 +1,90 @@
+* {
+    margin: 0em;
+    padding: 0em;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1em;
+}
+
+body {
+    background: #eeeeee;
+}
+
+#header {
+    border-bottom: 0.1em dotted #aebcbf;
+    background: #eeeeee;
+    height: 10em;
+}
+
+#subheader1 {
+    font-family: 'Aladin', cursive;
+    font-size: 5em;
+    padding-left: 1em;
+    background: linear-gradient(top, #aebcbf, #eeeeee);
+    background: -moz-linear-gradient(top, #aebcbf, #eeeeee);
+    background: -webkit-linear-gradient(top, #aebcbf, #eeeeee);
+    background: -o-linear-gradient(top, #aebcbf, #eeeeee);
+    background: -ms-linear-gradient(top, #aebcbf, #eeeeee);
+    color: #0a0809;
+}
+
+#subheader2 {
+    font-family: 'Aladin', cursive;
+    font-size: 2em;
+    text-align: right;
+    padding-right: 4em;
+    padding-bottom: 0.2em;
+    color: #aebcbf;
+}
+
+#legal_stuff {
+    clear: both;
+    border-top: 0.1em dotted #aebcbf;
+    text-align: center;
+    background: linear-gradient(top, #eeeeee, #aebcbf);
+    background: -moz-linear-gradient(top, #eeeeee, #aebcbf);
+    background: -webkit-linear-gradient(top, #eeeeee, #aebcbf);
+    background: -o-linear-gradient(top, #eeeeee, #aebcbf);
+    background: -ms-linear-gradient(top, #eeeeee, #aebcbf);
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#legal_stuff a {
+    font-weight: bold;
+}
+
+#menu {
+    float: left;
+    width: 13em;
+    background: linear-gradient(left, #aebcbf, #eeeeee);
+    background: -moz-linear-gradient(left, #aebcbf, #eeeeee);
+    background: -webkit-linear-gradient(left, #aebcbf, #eeeeee);
+    background: -o-linear-gradient(left, #aebcbf, #eeeeee);
+    background: -ms-linear-gradient(left), #aebcbf, #eeeeee);
+}
+
+#menu li {
+    list-style-type: none;
+    list-style-position: inside;
+    padding-left: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a.menu {
+    font-size: 2em;
+    color: #0a0809;
+}
+
+a.menu:hover {
+}
+
+#content {
+    margin-left: 13em;
+    padding-top: 1.1em;
+    padding-bottom: 1.1em;
+}
+
