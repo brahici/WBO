@@ -1,0 +1,42 @@
+#menu {
+    float: left;
+    width: 13em;
+    background: linear-gradient(left, #aebcbf, #eeeeee);
+    background: -moz-linear-gradient(left, #aebcbf, #eeeeee);
+    background: -webkit-linear-gradient(left, #aebcbf, #eeeeee);
+    background: -o-linear-gradient(left, #aebcbf, #eeeeee);
+    background: -ms-linear-gradient(left), #aebcbf, #eeeeee);
+    margin: 0em;
+    padding: 0em;
+}
+
+#menu ul {
+    margin: 0em;
+    padding: 0em;
+}
+
+#menu li {
+    margin: 0em;
+    padding: 0em 0em 0em 1em;
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+a.main_menu {
+    margin: 0em;
+    padding: 0em;
+    font-size: 1.9em;
+    font-weight: normal;
+    color: #0a0809;
+}
+
+a.main_menu:hover {
+    margin: 0em;
+    padding: 0em;
+}
+
+div#intro {
+    margin-top: -0.5em;
+    border-bottom: 0.1em dotted #aebcbf;
+}
+

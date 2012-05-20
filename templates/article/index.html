@@ -1,0 +1,28 @@
+{% extends "base_layout.html" %}
+
+{% block additional_css %}
+@import url("/media/style/article.css");
+{% endblock %}
+
+{% block title %}brahici's lair : articles{% endblock %}
+
+{% block content %}
+<div id="articles">
+{% if articles %}
+        <ul>
+        {% for article in articles %}
+        <li>
+        <a href="{{ article.get_absolute_url }}">
+            <span class="article_title">{{ article.title }}</span>
+        </a>
+        in category <span class="article_category"><a href="{{ article.category.get_absolute_url }}">
+                {{ article.category }}</a></span>
+        on <span class="article_published_date">{{ article.published_date }}</span>
+        </li>
+        {% endfor %}
+        </ul>
+{% else %}
+    <p>No articles so far</p>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base_layout.html" %}
+
+{% block additional_css %}
+@import url("/media/style/index.css");
+{% endblock %}
+
+{% block title %}brahici's lair : 404 problem{% endblock %}
+
+{% block content %}
+<div id="error_404">
+    <h1>Sorry. The almighty Django's URL dispatcher does not know what to do with your request (404 in your face).</h1>
+</div>
+{% endblock %}

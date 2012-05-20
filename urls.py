@@ -19,6 +19,15 @@ urlpatterns = patterns('',
 
     # index
     url(r'^$', include('wbo.index.urls')),
+
+    # article
+    url(r'^article/', include('wbo.article.urls.article')),
+
+    # category
+    url(r'^category/', include('wbo.article.urls.category')),
+
+    # about
+    url(r'^about/', include('wbo.about.urls')),
 )
 
 if settings.DEBUG:

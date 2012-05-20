@@ -3,8 +3,9 @@
 <style type="text/css">
 @import url("http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300|Aladin&subset=latin,latin-ext");
 @import url("/media/style/style.css");
-</style>
+@import url("/media/style/index.css");
 {% block additional_css %}{% endblock %}
+</style>
 <div id="main">
     <div id="header">
         <div id="subheader1">brahici's lair</div>
@@ -13,9 +14,15 @@
     <div id="menu">
         <ul>
             {% for menu in index_menus %}
-            <li><a class="menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
+            <li><a class="main_menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
             {% endfor %}
         </ul>
+        <!--
+        <ul>
+            <li>list of 5 last articles</li>
+            <li>tree of archives<br></li>
+        </ul>
+        -->
     </div>
     <div id="content">
         {% block content %}{% endblock %}
@@ -25,6 +32,5 @@
     <span>&copy; copyright 2012 by Brice Vissi&egrave;re</span> ::
     <span>powered by <a href="http://www.djangoproject.com/">django</a></span> ::
     <span>hosted by <a href="http://www.alwaysdata.com">AlwaysData</a></span>
-    </span>
 </div>
 

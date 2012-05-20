@@ -1,0 +1,16 @@
+{% extends "base_layout.html" %}
+
+{% block additional_css %}
+@import url("/media/style/article.css");
+@import url("/media/style/pygments.css");
+{% endblock %}
+
+{% block title %}brahici's lair : {{ article.title }}{% endblock %}
+
+{% block content %}
+
+{% with object=article %}
+{% include "article/_detail.html" %}
+{% endwith %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<div id="article-{{ object.id }}" class="article_detail">
+    <div class="article_title">
+        <h1>{{ object.title }}</h1>
+    </div>
+    <div class="article_content">
+        {{ object.content|safe }}
+    </div>
+    <div class="article_meta">
+        <p> published by <span class="article_author">{{ object.author.get_full_name }}</span>
+        on <span class="article_date_published">{{ object.published_date }}</span>
+        in category <span class="article_category">
+            <a href="{{ object.category.get_absolute_url }}">{{ object.category }}</a><span>.
+        </p>
+    </div>
+</div>

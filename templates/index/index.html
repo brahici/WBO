@@ -1,6 +1,26 @@
 {% extends "base_layout.html" %}
 
+{% block additional_css %}
+@import url("/media/style/article.css");
+@import url("/media/style/pygments.css");
+{% endblock %}
+
 {% block title %}brahici's lair{% endblock %}
 
 {% block content %}
+<div id="intro">
+    <p>Hi, you have safely landed at brahici's lair, aka WBO.</p>
+    <p>What kind of content you may expect ?</p>
+    <p>Nothing incredible... Personal thoughts, some python stuff, links to
+        bands and board games I enjoy.</p>
+</div>
+{% if last_article %}
+
+{% with object=last_article %}
+{% include "article/_detail.html" %}
+{% endwith %}
+
+{% else %}
+<p>No articles so far</p>
+{% endif %}
 {% endblock %}
