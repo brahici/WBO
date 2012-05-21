@@ -1,8 +1,12 @@
 {% extends "base_layout.html" %}
 
 {% block additional_css %}
+{{ block.super }}
+@import url("/media/style/index.css");
+{% if last_article %}
 @import url("/media/style/article.css");
 @import url("/media/style/pygments.css");
+{% endif %}
 {% endblock %}
 
 {% block title %}brahici's lair{% endblock %}

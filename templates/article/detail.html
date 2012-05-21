@@ -1,6 +1,8 @@
 {% extends "base_layout.html" %}
 
 {% block additional_css %}
+{{ block.super}}
+@import url("/media/style/index.css");
 @import url("/media/style/article.css");
 @import url("/media/style/pygments.css");
 {% endblock %}

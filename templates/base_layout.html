@@ -2,9 +2,9 @@
 <title>{% block title %}default title{% endblock %}</title>
 <style type="text/css">
 @import url("http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300|Aladin&subset=latin,latin-ext");
+{% block additional_css %}
 @import url("/media/style/style.css");
-@import url("/media/style/index.css");
-{% block additional_css %}{% endblock %}
+{% endblock %}
 </style>
 <div id="main">
     <div id="header">
