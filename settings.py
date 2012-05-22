@@ -112,6 +112,7 @@ TEMPLATE_DIRS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'context_processors.site',
     'index.context_processors.index_menus',
     'article.context_processors.article_last',
 )
