@@ -24,6 +24,7 @@ class ArticlePublishedManager(models.Manager):
         return super(ArticlePublishedManager, self).get_query_set() \
                 .filter(state='published')
 
+
 #TODO: add tags
 class Article(models.Model):
     STATES = (
@@ -45,6 +46,7 @@ class Article(models.Model):
     state = models.CharField(max_length=32, choices=STATES, default='draft')
     allow_comments = models.BooleanField(default=False)
 
+    objects = models.Manager()
     published = ArticlePublishedManager()
 
     @property
@@ -53,7 +55,7 @@ class Article(models.Model):
 
     @staticmethod
     def get_last_published():
-        if Article.published:
+        if Article.published.count():
             return Article.published.order_by('-id')[0]
         return None
 
@@ -65,7 +67,7 @@ class Article(models.Model):
         return ('article_slug_view', [self.slug,])
 
     class Meta:
-        ordering=['-published_date', '-creation_date', '-last_update',]
+        ordering=['-published_date', '-last_update',]
         verbose_name = 'article'
         verbose_name_plural = 'articles'
 
