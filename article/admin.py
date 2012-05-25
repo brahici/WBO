@@ -14,11 +14,14 @@ class CategoryAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     fields = ('author', 'category', 'title', 'slug', 'body',
             'summary', ('state', 'published_date'), 'allow_comments')
-    list_display = ['title', 'category', 'state', 'published_date',]
-    search_fields = ['title', 'slug',]
+    list_display = ('title', 'category', 'state', 'published_date', 'creation_date',)
+    list_filter = ('category', 'state',)
+    search_fields = ('title', 'slug',)
     date_hierarchy = 'published_date'
     prepopulated_fields = {'slug': ('title',)}
     actions = ['action_publish', 'action_mask', 'action_draft',]
+    actions_on_top = True
+    actions_on_bottom = True
 
     def _change_state(self, queryset, state):
         values = {
