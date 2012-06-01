@@ -10,6 +10,7 @@
 @import url("/media/style/style.css");
 {% endblock %}
 </style>
+{% load article_tags %}
 <div id="main">
     <div id="header">
         <div id="subheader1">brahici's lair</div>
@@ -21,12 +22,9 @@
             <li><a class="main_menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
             {% endfor %}
         </ul>
-        <!--
-        <ul>
-            <li>list of 5 last articles</li>
-            <li>tree of archives<br></li>
-        </ul>
-        -->
+        <div id="recent_articles" class="menu_section">
+           {% get_recent_articles %}
+        </div>
     </div>
     <div id="content">
         {% block content %}{% endblock %}
