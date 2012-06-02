@@ -64,7 +64,13 @@ class Article(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('article_slug_view', [self.slug,])
+        vals = {
+            'year': self.published_date.strftime('%Y'),
+            'month': self.published_date.strftime('%m'),
+            'day': self.published_date.strftime('%d'),
+            'slug': self.slug,
+        }
+        return ('article_ymd_slug_view', [], vals)
 
     class Meta:
         ordering=['-published_date', '-last_update',]
