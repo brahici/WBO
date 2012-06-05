@@ -15,11 +15,11 @@ urlpatterns = patterns('',
                 template_name='article/detail.html'),
             name='article_ymd_slug_view'),
     url(r'^(?P<pk>\d+)/$', DetailView.as_view(
-            model=Article,
+            queryset=Article.published.get_query_set(),
             context_object_name='article',
             template_name='article/detail.html')),
     url(r'^(?P<slug>[-\w]+)/$', DetailView.as_view(
-            model=Article,
+            queryset=Article.published.get_query_set(),
             context_object_name='article',
             template_name='article/detail.html'),
         name='article_slug_view'),
