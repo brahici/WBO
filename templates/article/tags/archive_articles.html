@@ -1,20 +1,36 @@
-<span class="menu_section_title">Archive</span>
-<ul>
-    {% for year, months in archives.items %}
-        <li>{{ year }}
+<span class="menu_section_title">Archives</span>
+{% regroup archives by published_date.year as year_list %}
+<ul id="article_archive_tree" class="template-tag-top">
+    {% for year in year_list %}
+        <li class="archive_tree_node no-disc">
+            <h3 class="archive_tree_header inactive"
+                    title="click year to to expand/collapse">{{ year.grouper }}
+                <a title="click number of articles show list of articles"
+                    href="{% url article_archive_year year.grouper %}">({{ year.list|length }})</a>
+            </h3>
+            {% regroup year.list by published_date.month as month_list %}
             <ul>
-                {% for month, articles in months.items %}
-                    <li>{{ month }} [{{ articles|length }}]
-                        <ul>
-                            {% for article in articles %}
-                            <li>
+                {% for month in month_list %}
+                    <li class="archive_tree_node no-disc">
+                    {% with month.list.0.published_date as month_dt_obj %}
+                    <h3 class="archive_tree_header inactive"
+                           title="click month name to expand/collapse">
+                        {{ month_dt_obj|date:'F' }}
+                        <a title="click number of articles to show list of articles"
+                            href="{% url article_archive_month year.grouper month_dt_obj|date:'m' %}"
+                                >({{ month.list|length }})</a>
+                    </h3>
+                    {% endwith %}
+                    <ul>
+                        {% for article in month.list %}
+                            <li class="with-disc">
                                 <a href="{{ article.get_absolute_url }}"><span class="menu_articles_title">{{ article.title }}</span></a>
                             </li>
-                            {% endfor %}
-                        </ul>
+                        {% endfor %}
+                    </ul>
                     </li>
-                {% endfor %}
-                        </ul>
-                    </li>
+               {% endfor %}
+            </ul>
+        </li>
     {% endfor %}
 </ul>

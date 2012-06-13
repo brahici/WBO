@@ -2,6 +2,7 @@ from django.conf.urls.defaults import patterns, url
 from django.views.generic import DetailView, ListView
 
 from ..models import Article
+from ..views import ArticleYearArchive, ArticleMonthArchive
 
 urlpatterns = patterns('',
     url(r'^$', ListView.as_view(
@@ -19,8 +20,13 @@ urlpatterns = patterns('',
             context_object_name='article',
             template_name='article/detail.html')),
     url(r'^(?P<slug>[-\w]+)/$', DetailView.as_view(
-            queryset=Article.published.get_query_set(),
-            context_object_name='article',
-            template_name='article/detail.html'),
-        name='article_slug_view'),
+                queryset=Article.published.get_query_set(),
+                context_object_name='article',
+                template_name='article/detail.html'),
+            name='article_slug_view'),
+    url(r'archives/(?P<year>\d{4})/$', ArticleYearArchive.as_view(),
+            name='article_archive_year'),
+    url(r'archives/(?P<year>\d{4})/(?P<month>\d{2})/$',
+            ArticleMonthArchive.as_view(),
+            name='article_archive_month'),
 )

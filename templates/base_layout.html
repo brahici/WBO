@@ -10,6 +10,12 @@
 @import url("/media/style/style.css");
 {% endblock %}
 </style>
+{% block jsinc %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/media/js/jquery.collapse.js" type="text/javascript"></script>
+<script src="/media/js/jquery.cookie.js" type="text/javascript"></script>
+{% endblock %}
 {% load article_tags %}
 <div id="main">
     <div id="header">
@@ -17,21 +23,43 @@
         <div id="subheader2">my life, python stuff and links to heavy tunes</div>
     </div>
     <div id="menu">
-        <ul>
+        <ul class="menu_node">
             {% for menu in index_menus %}
-            <li><a class="main_menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
+            <li class="menu_element"><a class="main_menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
             {% endfor %}
         </ul>
         <div id="recent_articles" class="menu_section">
            {% get_recent_articles %}
         </div>
+        <div id="archive_articles" class="menu_section">
+           {% get_archive_articles %}
+       </div>
     </div>
     <div id="content">
         {% block content %}{% endblock %}
     </div>
+    <div id="legal_stuff">
+        <span>&copy; copyright 2012 by Brice Vissi&egrave;re</span> ::
+        <span>powered by <a href="http://www.djangoproject.com/">django</a></span> ::
+        <span>hosted by <a href="http://www.alwaysdata.com">AlwaysData</a></span>
+    </div>
 </div>
-<div id="legal_stuff">
-    <span>&copy; copyright 2012 by Brice Vissi&egrave;re</span> ::
-    <span>powered by <a href="http://www.djangoproject.com/">django</a></span> ::
-    <span>hosted by <a href="http://www.alwaysdata.com">AlwaysData</a></span>
-</div>
+<script type="text/javascript">
+$("#article_archive_tree").collapse({
+    show: function(){
+        this.animate({
+            opacity: 'toggle',
+            height: 'toggle'
+        }, 300);
+    },
+    hide : function() {
+        this.animate({
+            opacity: 'toggle',
+            height: 'toggle'
+        }, 100);
+    },
+    group: 'ul',
+    head: 'h3',
+    cookieName: 'archive_collapse'
+});
+</script>
