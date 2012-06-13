@@ -22,7 +22,7 @@ class Category(models.Model):
 class ArticlePublishedManager(models.Manager):
     def get_query_set(self):
         return super(ArticlePublishedManager, self).get_query_set() \
-                .filter(state='published')
+                .filter(state='published').order_by('-published_date')
 
 
 #TODO: add tags
@@ -56,7 +56,7 @@ class Article(models.Model):
     @staticmethod
     def get_last_published():
         if Article.published.count():
-            return Article.published.order_by('-id')[0]
+            return Article.published.latest('published_date')
         return None
 
     def __unicode__(self):
