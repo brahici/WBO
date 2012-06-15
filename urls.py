@@ -21,10 +21,7 @@ urlpatterns = patterns('',
     url(r'^$', include('wbo.index.urls')),
 
     # article
-    url(r'^article/', include('wbo.article.urls.article')),
-
-    # category
-    url(r'^category/', include('wbo.article.urls.category')),
+    url(r'', include('wbo.article.urls')),
 
     # about
     url(r'^about/', include('wbo.about.urls')),
@@ -33,6 +30,7 @@ urlpatterns = patterns('',
 if settings.DEBUG:
     # static content in debug environment
     urlpatterns += patterns('',
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT}),
     )
 
