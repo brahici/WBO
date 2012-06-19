@@ -2,9 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.markup.templatetags.markup import restructuredtext
 
+def published_articles(queryset):
+    return queryset.filter(state='published').order_by('-published_date')
+
 class Category(models.Model):
     label = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, max_length=255)
+
+    def articles_published(self):
+        return published_articles(self.article_set)
 
     def __unicode__(self):
         return self.label
@@ -21,8 +27,8 @@ class Category(models.Model):
 
 class ArticlePublishedManager(models.Manager):
     def get_query_set(self):
-        return super(ArticlePublishedManager, self).get_query_set() \
-                .filter(state='published').order_by('-published_date')
+        return published_articles(super(ArticlePublishedManager, self).get_query_set())
+#                .filter(state='published').order_by('-published_date')
 
 
 #TODO: add tags
