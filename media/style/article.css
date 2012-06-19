@@ -1,14 +1,14 @@
 .article_detail {
     font-size: 1.1em;
 }
+
 .article_detail .article_title {
-    margin-bottom: 1em;
 }
 
 .article_detail .article_title h1 {
-    padding-left: 1em;
     font-family: 'Aladin', cursive;
-    font-size: 1.3em;
+    font-size: 1.5em;
+    margin: 1em 0em 0em 0em;
 }
 
 .article_detail .article_content div.sourcecode {
@@ -23,7 +23,9 @@
 }
 
 .article_detail .article_meta {
-    margin-top: 1em;
+    margin: -1.2em 0em 0em 0em;
+    font-style: italic;
+    font-size: 0.9em;
 }
 
 .article_detail .article_meta .article_author {
@@ -41,6 +43,10 @@
 .article_detail .article_meta .article_category a {
     font-weight: bold;
     font-size: 1em;
+}
+
+#articles .articles_group {
+    font-size: 1.5em;
 }
 
 #categories p {
