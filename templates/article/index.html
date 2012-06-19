@@ -14,12 +14,12 @@
     <p class="articles_group">Articles published
     {% if articles_filtered %}
         {% if category %}
-        in category '{{ category.label }}'
+        in category {{ category.label }}
         {% elif year %}
             {% if month %}
-                in '{{ month|date:'F' }} {{ year }}'
+                in {{ month|date:'F' }} {{ year }}
             {% else %}
-                in '{{ year }}'
+                in {{ year }}
             {% endif %}
         {% endif %}
     {% endif %}
