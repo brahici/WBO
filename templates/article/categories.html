@@ -17,7 +17,7 @@
         <li>
         <a href="{{ category.get_absolute_url }}">
             <span class="category_label">{{ category.label }}</span> </a> :
-            {{ category.article_set.count }} articles published
+            {{ category.articles_published.count }} articles published
         </li>
         {% endfor %}
         </ul>
