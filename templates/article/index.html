@@ -11,18 +11,31 @@
 {% block content %}
 <div id="articles">
 {% if articles %}
-        <ul>
+    <p class="articles_group">Articles published
+    {% if articles_filtered %}
+        {% if category %}
+        in category '{{ category.label }}'
+        {% elif year %}
+            {% if month %}
+                in '{{ month|date:'F' }} {{ year }}'
+            {% else %}
+                in '{{ year }}'
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    </p>
+    <ul>
         {% for article in articles %}
         <li>
         <a href="{{ article.get_absolute_url }}">
             <span class="article_title">{{ article.title }}</span>
         </a>
         in category <span class="article_category"><a href="{{ article.category.get_absolute_url }}">
-                {{ article.category }}</a></span>
+        {{ article.category }}</a></span>
         on <span class="article_published_date">{{ article.published_date }}</span>
         </li>
-        {% endfor %}
-        </ul>
+    {% endfor %}
+    </ul>
 {% else %}
     <p>No articles so far</p>
 {% endif %}
