@@ -28,7 +28,6 @@ class Category(models.Model):
 class ArticlePublishedManager(models.Manager):
     def get_query_set(self):
         return published_articles(super(ArticlePublishedManager, self).get_query_set())
-#                .filter(state='published').order_by('-published_date')
 
 
 #TODO: add tags
