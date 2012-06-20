@@ -56,9 +56,27 @@
 #categories li {
     list-style-type: none;
     list-style-position: inside;
+    margin-bottom: 0.15em;
+    margin-top: 0.10em;
 }
 
 #categories a {
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+#article_tags p {
+    font-size: 1.5em;
+}
+
+#article_tags li {
+    list-style-type: none;
+    list-style-position: inside;
+    margin-bottom: 0.15em;
+    margin-top: 0.10em;
+}
+
+#article_tags a {
     font-size: 1.0em;
     font-weight: bold;
 }

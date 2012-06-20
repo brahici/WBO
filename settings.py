@@ -133,6 +133,7 @@ INSTALLED_APPS = (
     'index',
     'article',
     'about',
+    'taggit',
 )
 
 # A sample logging configuration. The only tangible logging

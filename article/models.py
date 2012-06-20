@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.markup.templatetags.markup import restructuredtext
 
+from taggit.managers import TaggableManager
+
 def published_articles(queryset):
     return queryset.filter(state='published').order_by('-published_date')
 
@@ -30,7 +32,6 @@ class ArticlePublishedManager(models.Manager):
         return published_articles(super(ArticlePublishedManager, self).get_query_set())
 
 
-#TODO: add tags
 class Article(models.Model):
     STATES = (
         ('draft', 'Draft'),
@@ -53,6 +54,8 @@ class Article(models.Model):
 
     objects = models.Manager()
     published = ArticlePublishedManager()
+
+    tags = TaggableManager()
 
     @property
     def content(self):

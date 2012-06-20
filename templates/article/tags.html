@@ -1,0 +1,28 @@
+{% extends "base_layout.html" %}
+
+{% block additional_css %}
+{{ block.super }}
+@import url("/media/style/index.css");
+@import url("/media/style/article.css");
+{% endblock %}
+
+{% block title %}brahici's lair : tags{% endblock %}
+
+{% block content %}
+<div id="article_tags">
+{% if tags %}
+        <p>List of tags</p>
+        <ul>
+        {% for tag in tags %}
+        <li>
+        <a href="{% url articles_by_tag tag.slug %}">
+            <span class="tag_label">{{ tag }}</span> </a> : {{ tag.count }}
+            articles tagged
+        </li>
+        {% endfor %}
+        </ul>
+{% else %}
+    <p>No tags created so far</p>
+{% endif %}
+</div>
+{% endblock %}

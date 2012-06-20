@@ -12,7 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ('author', 'category', 'title', 'slug', 'body',
+    fields = ('author', 'category', 'title', 'slug', 'tags', 'body',
             'summary', ('state', 'published_date'), 'allow_comments')
     list_display = ('title', 'category', 'state', 'published_date', 'creation_date',)
     list_filter = ('category', 'state',)

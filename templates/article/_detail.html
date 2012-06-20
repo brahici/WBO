@@ -6,7 +6,13 @@
         <p> published by <span class="article_author">{{ object.author.get_full_name }}</span>
         on <span class="article_date_published">{{ object.published_date }}</span>
         in category <span class="article_category">
-            <a href="{{ object.category.get_absolute_url }}">{{ object.category }}</a></span>.
+            <a href="{{ object.category.get_absolute_url }}">{{ object.category }}</a></span>.<br>
+        tagged as :
+        {% for tag in object.tags.all %}
+            <a href="{% url articles_by_tag tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            <span>no tags</span>
+        {% endfor %}
         </p>
     </div>
     <div class="article_content">
