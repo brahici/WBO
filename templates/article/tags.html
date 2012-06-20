@@ -17,7 +17,7 @@
         <li>
         <a href="{% url articles_by_tag tag.slug %}">
             <span class="tag_label">{{ tag }}</span> </a> : {{ tag.count }}
-            articles tagged
+            article{{ tag.count|pluralize }}
         </li>
         {% endfor %}
         </ul>
