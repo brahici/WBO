@@ -45,6 +45,10 @@
     font-size: 1em;
 }
 
+#articles li {
+    margin-bottom: 0.25em;
+}
+
 #articles .articles_group {
     font-size: 1.5em;
 }
