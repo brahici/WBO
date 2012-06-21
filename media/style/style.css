@@ -84,3 +84,29 @@ a {
     max-width: 45em;
 }
 
+#back_to_top_container {
+    background: transparent;
+    position: fixed;
+    top: 3em;
+    left: -5.4em;
+    padding: 1em 0.5em 1em 0em;
+}
+
+#back_to_top {
+    background: #eeeeee;
+    padding: 0.5em 1em 4em 1em;
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    border-top-right-radius: 0.5em 0.5em;
+    border-top-left-radius: 0.5em 0.5em;
+    border-left: 0.1em solid #aebcbf;
+    border-right: 0.2em solid #aebcbf;
+    border-top: 0.2em solid #aebcbf;
+}
+
+#back_to_top_container:hover {
+    left: -3.5em;
+}
