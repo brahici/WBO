@@ -95,3 +95,7 @@ li.archive_tree_node {
     margin: 0.25em 0em 0.25em 0em;
     padding: 0em;
 }
+
+.menu_section .category_tag_list {
+    margin: 0em 1em 0em 2em;
+}

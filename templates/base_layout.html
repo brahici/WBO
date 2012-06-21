@@ -35,6 +35,12 @@
             <li class="menu_element"><a class="main_menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
             {% endfor %}
         </ul>
+        <div id="categories_menu" class="menu_section">
+            {% get_categories %}
+        </div>
+        <div id="tag_menu" class="menu_section">
+            {% get_tags %}
+        </div>
         <div id="recent_articles" class="menu_section">
            {% get_recent_articles %}
         </div>
