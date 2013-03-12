@@ -2,10 +2,10 @@
 
 {% block additional_css %}
 {{ block.super }}
-@import url("/media/style/index.css");
+@import url("/static/style/index.css");
 {% if last_article %}
-@import url("/media/style/article.css");
-@import url("/media/style/pygments.css");
+@import url("/static/style/article.css");
+@import url("/static/style/pygments.css");
 {% endif %}
 {% endblock %}
 

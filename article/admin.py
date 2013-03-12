@@ -4,6 +4,7 @@ from django.contrib import admin
 
 from .models import Category, Article
 
+
 class CategoryAdmin(admin.ModelAdmin):
     fields = ['label', 'slug',]
     search_fields = ['label', 'slug',]

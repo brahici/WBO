@@ -1,7 +1,7 @@
 <span class="menu_section_title">Tags</span>
 <div class="category_tag_list">
 {% for tag in tags %}
-<a href="{% url articles_by_tag tag.slug %}"
+<a href="{% url 'articles_by_tag' tag.slug %}"
         >{{ tag.name }}</a>{% if not forloop.last %}*{% endif %}
 {% endfor %}
 </div>

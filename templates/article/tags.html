@@ -2,8 +2,8 @@
 
 {% block additional_css %}
 {{ block.super }}
-@import url("/media/style/index.css");
-@import url("/media/style/article.css");
+@import url("/media/static/index.css");
+@import url("/media/static/article.css");
 {% endblock %}
 
 {% block title %}brahici's lair : tags{% endblock %}
@@ -15,7 +15,7 @@
         <ul>
         {% for tag in tags %}
         <li>
-        <a href="{% url articles_by_tag tag.slug %}">
+        <a href="{% url 'articles_by_tag' tag.slug %}">
             <span class="tag_label">{{ tag }}</span> </a> : {{ tag.count }}
             article{{ tag.count|pluralize }}
         </li>

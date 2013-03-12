@@ -9,6 +9,7 @@ from taggit.models import Tag
 
 from .models import Article, Category
 
+
 class FilteredArticleListMixin(object):
     def get_context_data(self, **kwargs):
         context = super(FilteredArticleListMixin, self).get_context_data(
@@ -69,6 +70,7 @@ class ArticleTag(FilteredArticleListMixin, ListView):
         context = super(ArticleTag, self).get_context_data(**kwargs)
         context['tag'] = get_object_or_404(Tag, slug=self.kwargs['tag_slug'])
         return context
+
 
 class TagList(ListView):
     context_object_name = 'tags'

@@ -7,6 +7,7 @@ from taggit.managers import TaggableManager
 def published_articles(queryset):
     return queryset.filter(state='published').order_by('-published_date')
 
+
 class Category(models.Model):
     label = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, max_length=255)

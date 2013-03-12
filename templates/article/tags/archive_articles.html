@@ -6,7 +6,7 @@
             <h3 class="archive_tree_header inactive"
                     title="click year to to expand/collapse">{{ year.grouper }}
                 <a title="click number of articles show list of articles"
-                    href="{% url article_archive_year year.grouper %}">({{ year.list|length }})</a>
+                    href="{% url 'article_archive_year' year.grouper %}">({{ year.list|length }})</a>
             </h3>
             {% regroup year.list by published_date.month as month_list %}
             <ul>
@@ -17,7 +17,7 @@
                            title="click month name to expand/collapse">
                         {{ month_dt_obj|date:'F' }}
                         <a title="click number of articles to show list of articles"
-                            href="{% url article_archive_month year.grouper month_dt_obj|date:'m' %}"
+                            href="{% url 'article_archive_month' year.grouper month_dt_obj|date:'m' %}"
                                 >({{ month.list|length }})</a>
                     </h3>
                     {% endwith %}

@@ -2,8 +2,8 @@
 
 {% block additional_css %}
 {{ block.super }}
-@import url("/media/style/index.css");
-@import url("/media/style/article.css");
+@import url("/static/style/index.css");
+@import url("/static/style/article.css");
 {% endblock %}
 
 {% block title %}brahici's lair : articles{% endblock %}
@@ -36,7 +36,7 @@
         {{ article.category }}</a></span>
         on <span class="article_published_date">{{ article.published_date }}</span><br>
         {% for tag in article.tags.all %}{% if forloop.first %}tagged as {% endif %}
-            <a href="{% url articles_by_tag tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+            <a href="{% url 'articles_by_tag' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
         {% empty %}
         not tagged
         {% endfor %}
