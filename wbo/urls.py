@@ -18,13 +18,13 @@ urlpatterns = patterns('',
     url(r'^voppos/', include(admin.site.urls)),
 
     # index
-    url(r'^$', include('wbo.index.urls')),
+    url(r'^$', include('index.urls')),
 
     # article
-    url(r'', include('wbo.article.urls')),
+    url(r'', include('article.urls')),
 
     # about
-    url(r'^about/', include('wbo.about.urls')),
+    url(r'^about/', include('about.urls')),
 )
 
 # if settings.DEBUG:
