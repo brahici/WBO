@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.markup.templatetags.markup import restructuredtext
 
 from taggit.managers import TaggableManager
 
@@ -60,7 +59,7 @@ class Article(models.Model):
 
     @property
     def content(self):
-        return restructuredtext(self.body)
+        return self.body
 
     @staticmethod
     def get_last_published():
@@ -85,6 +84,3 @@ class Article(models.Model):
         ordering=['-published_date', '-last_update',]
         verbose_name = 'article'
         verbose_name_plural = 'articles'
-
-
-
