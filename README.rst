@@ -1,6 +1,6 @@
 
 WBO
-=====
+===
 
 WBO is the source code for my personal web site.
 

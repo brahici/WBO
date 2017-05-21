@@ -1,16 +1,16 @@
 {% extends "base_layout.html" %}
+{% load static %}
 
 {% block additional_css %}
 {{ block.super }}
-@import url("/static/style/index.css");
+@import url({% static 'wbo/style/index.css' %});
 {% endblock %}
 
 {% block title %}about brahici's lair{% endblock %}
 
 {% block content %}
 <div id="about">
-    <p>Oh. You want to know more about <a href="http://{{ site.domain }}">{{ site.name }}</a>
-    and maybe about me.</p>
+    <p>Oh. You want to know more about me.</p>
     <p>My name is Brice Vissi&egrave;re, I am french, born in 1972. I am a former
     chemist, but I work as software engineer since 1998.</p>
     <p>I live in South West of France, nearby Bordeaux.</p>

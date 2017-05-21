@@ -1,20 +1,21 @@
+{% load static %}
 <!doctype html>
 <meta name="keywords" content="brice , vissiere , home , linux , python , opensource , open source , brahici , django, flask, pyramid, postgresql, mongodb, tdd, agile">
 <meta name="author" content="Brice Vissière">
 <meta charset="utf-8">
 <title>{% block title %}default title{% endblock %}</title>
-<link rel="shortcut icon" type="image/png" href="/static/wbo-favicon.png" />
+<link rel="shortcut icon" type="image/png" href="{% static 'wbo/wbo-favicon.png' %}" />
 <style type="text/css">
 @import url("http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300|Aladin&subset=latin,latin-ext");
 {% block additional_css %}
-@import url("/static/style/style.css");
+@import url({% static 'wbo/style/style.css' %});
 {% endblock %}
 </style>
 {% block jsinc %}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js" type="text/javascript"></script>
-<script src="/static/js/jquery.collapse.js" type="text/javascript"></script>
-<script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="{% static 'wbo/js/jquery.collapse.js' %}" type="text/javascript"></script>
+<script src="{% static 'wbo/js/jquery.cookie.js' %}" type="text/javascript"></script>
 {% endblock %}
 {% load article_tags %}
 <noscript>
@@ -31,9 +32,14 @@
     </div>
     <div id="menu">
         <ul class="menu_node">
+            <li class="menu_element"><a class="main_menu" href="{% url 'wbo:index' %}">Home</a></li>
             {% for menu in index_menus %}
             <li class="menu_element"><a class="main_menu" href="{{ menu.url }}">{{ menu.label }}</a></li>
             {% endfor %}
+            <li class="menu_element"><a class="main_menu" href="{% url 'wbo:about' %}">About</a></li>
+            {% if user.is_authenticated %}
+                <li class="menu_element"><a class="main_menu" href="{% url 'admin:index' %}">Admin</a></li>
+            {% endif %}
         </ul>
         <div id="categories_menu" class="menu_section">
             {% get_categories %}
@@ -53,7 +59,7 @@
         {% endblock %}
     </div>
     <div id="legal_stuff">
-        <span>&copy; copyright 2012-2014 by Brice Vissi&egrave;re</span> ::
+        <span>&copy; copyright 2012-2017 by Brice Vissi&egrave;re</span> ::
         <span>powered by <a href="http://www.djangoproject.com/">django</a></span> ::
         <span>hosted by <a href="http://www.alwaysdata.com">AlwaysData</a></span>
     </div>
@@ -64,21 +70,23 @@
     </div>
 <div>
 <script type="text/javascript">
-$("#article_archive_tree").collapse({
-    show: function(){
-        this.animate({
-            opacity: 'toggle',
-            height: 'toggle'
-        }, 300);
-    },
-    hide : function() {
-        this.animate({
-            opacity: 'toggle',
-            height: 'toggle'
-        }, 100);
-    },
-    group: 'ul',
-    head: 'h3',
-    cookieName: 'archive_collapse'
+$(document).ready(function() {
+    $("#article_archive_tree").collapse({
+        show: function(){
+            this.animate({
+                opacity: 'toggle',
+                height: 'toggle'
+            }, 300);
+        },
+        hide : function() {
+            this.animate({
+                opacity: 'toggle',
+                height: 'toggle'
+            }, 100);
+        },
+        group: 'ul',
+        head: 'h3',
+        cookieName: 'archive_collapse'
+    });
 });
 </script>

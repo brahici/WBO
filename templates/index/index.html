@@ -1,11 +1,12 @@
 {% extends "base_layout.html" %}
+{% load static %}
 
 {% block additional_css %}
 {{ block.super }}
-@import url("/static/style/index.css");
+@import url({% static 'wbo/style/index.css' %});
 {% if last_article %}
-@import url("/static/style/article.css");
-@import url("/static/style/pygments.css");
+@import url({% static 'wbo/style/article.css' %});
+@import url({% static 'wbo/style/pygments.css' %});
 {% endif %}
 {% endblock %}
 

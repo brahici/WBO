@@ -1,8 +1,9 @@
 {% extends "base_layout.html" %}
+{% load static %}
 
 {% block additional_css %}
 {{ block.super}}
-@import url("/static/style/index.css");
+@import url({% static 'wbo/style/index.css' %});
 {% endblock %}
 
 {% block title %}brahici's lair : 500 problem{% endblock %}

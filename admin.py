@@ -2,7 +2,17 @@ from datetime import datetime
 
 from django.contrib import admin
 
-from .models import Category, Article
+from .models.index import Menu
+from .models.article import (
+    Category,
+    Article,
+)
+
+
+class MenuAdmin(admin.ModelAdmin):
+    fields = ['label', 'url', 'sequence', 'visible']
+    search_fields = ['label', 'url', 'visible']
+    list_display = ['label', 'url', 'sequence', 'visible']
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -63,5 +73,6 @@ class ArticleAdmin(admin.ModelAdmin):
         article.last_update = datetime.now()
         article.save()
 
+admin.site.register(Menu, MenuAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Article, ArticleAdmin)

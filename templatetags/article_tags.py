@@ -2,7 +2,10 @@ from django.template import Library
 
 from taggit.models import Tag
 
-from ..models import Article, Category
+from wbo.models.article import (
+    Article,
+    Category,
+)
 
 register = Library()
 

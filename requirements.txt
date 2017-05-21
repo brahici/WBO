@@ -1,0 +1,5 @@
+Django
+django-markup
+django-taggit
+docutils
+Pygments

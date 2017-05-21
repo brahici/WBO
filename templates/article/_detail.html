@@ -1,4 +1,4 @@
-{% load rstify_tags %}
+{% load markup_tags %}
 <div id="article-{{ object.id }}" class="article_detail">
     <div class="article_title">
         <h1>{{ object.title }}</h1>
@@ -10,13 +10,13 @@
             <a href="{{ object.category.get_absolute_url }}">{{ object.category }}</a></span>.<br>
         tagged as :
         {% for tag in object.tags.all %}
-            <a href="{% url 'articles_by_tag' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+            <a href="{% url 'wbo:articles_by_tag' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
         {% empty %}
             <span>no tags</span>
         {% endfor %}
         </p>
     </div>
     <div class="article_content">
-        {{ object.content|rstify }}
+        {{ object.content|apply_markup:"restructuredtext" }}
     </div>
  </div>

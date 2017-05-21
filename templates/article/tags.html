@@ -1,9 +1,10 @@
 {% extends "base_layout.html" %}
+{% load static %}
 
 {% block additional_css %}
 {{ block.super }}
-@import url("/static/style/index.css");
-@import url("/static/style/article.css");
+@import url({% static 'wbo/style/index.css' %});
+@import url({% static 'wbo/style/article.css' %});
 {% endblock %}
 
 {% block title %}brahici's lair : tags{% endblock %}
@@ -15,7 +16,7 @@
         <ul>
         {% for tag in tags %}
         <li>
-        <a href="{% url 'articles_by_tag' tag.slug %}">
+        <a href="{% url 'wbo:articles_by_tag' tag.slug %}">
             <span class="tag_label">{{ tag }}</span> </a> : {{ tag.count }}
             article{{ tag.count|pluralize }}
         </li>

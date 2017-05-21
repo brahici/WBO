@@ -14,12 +14,12 @@ class Category(models.Model):
     def articles_published(self):
         return published_articles(self.article_set)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.label
 
     @models.permalink
     def get_absolute_url(self):
-        return ('category_slug_article_list_view', [self.slug,])
+        return ('wbo:category_slug_article_list_view', [self.slug,])
 
     class Meta:
         ordering=['label',]
@@ -28,8 +28,9 @@ class Category(models.Model):
 
 
 class ArticlePublishedManager(models.Manager):
-    def get_query_set(self):
-        return published_articles(super(ArticlePublishedManager, self).get_query_set())
+    def get_queryset(self):
+        return published_articles(super(
+                ArticlePublishedManager, self).get_queryset())
 
 
 class Article(models.Model):
@@ -43,9 +44,8 @@ class Article(models.Model):
     slug = models.SlugField(unique=True, max_length=255)
     published_date = models.DateTimeField('published on', null=True,
             blank=True)
-    creation_date = models.DateTimeField('date created', auto_now_add=True)
-    last_update = models.DateTimeField('updated', auto_now=True,
-            auto_now_add=True)
+    creation_date = models.DateTimeField('date created', auto_now=True)
+    last_update = models.DateTimeField('updated', auto_now=True)
     body = models.TextField()
     title = models.CharField(max_length=255)
     summary = models.TextField(blank=True)
@@ -67,7 +67,7 @@ class Article(models.Model):
             return Article.published.latest('published_date')
         return None
 
-    def __unicode__(self):
+    def __str__(self):
         return self.slug
 
     @models.permalink
@@ -78,7 +78,7 @@ class Article(models.Model):
             'day': self.published_date.strftime('%d'),
             'slug': self.slug,
         }
-        return ('article_ymd_slug_view', [], vals)
+        return ('wbo:article_ymd_slug_view', [], vals)
 
     class Meta:
         ordering=['-published_date', '-last_update',]
